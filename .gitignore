@@ -1,3 +1,8 @@
 .venv/
 venv/
 .env
+__pycache__/
+.ruff_cache__/
+.ruff_cache
+.mypy_cache/
+.DS_Store

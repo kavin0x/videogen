@@ -1,45 +1,34 @@
-import requests
-import os
-from dotenv import load_dotenv
+"""
+Meta **Movie Gen** is a research / product initiative; there is no public,
+documented REST API equivalent to the other modules in this repository as of
+2025–2026. Partnership pilots (e.g. with studios) are not accessible via a
+general developer key.
 
-load_dotenv()
+If Meta ships a public API, replace this module with real endpoints and auth.
+
+References:
+https://ai.meta.com/research/publications/movie-gen-a-cast-of-media-foundation-models/
+https://ai.meta.com/blog/movie-gen-media-foundation-models-generative-ai-video/
+"""
+
 
 def generate_video_meta(prompt: str, duration: int = 16):
     """
-    Generate video with audio using Meta Movie Gen API
-    
-    Args:
-        prompt: Text description of the video to generate
-        duration: Duration in seconds (up to 16 seconds)
-    
-    Returns:
-        dict: Response with video information
+    Placeholder for Meta Movie Gen.
+
+    Raises:
+        NotImplementedError: Always — no public Movie Gen developer API is
+        available to call from generic API keys.
     """
-    api_key = os.getenv('META_API_KEY')
-    
-    if not api_key:
-        raise ValueError("META_API_KEY environment variable not set")
-    
-    url = 'https://api.meta.com/v1/movie-gen/generate'
-    
-    headers = {
-        'Authorization': f'Bearer {api_key}',
-        'Content-Type': 'application/json'
-    }
-    
-    data = {
-        'prompt': prompt,
-        'duration': min(duration, 16)  # Cap at 16 seconds
-    }
-    
-    response = requests.post(url, headers=headers, json=data)
-    
-    if response.status_code == 200:
-        return response.json()
-    else:
-        raise Exception(f'Error: {response.status_code}, {response.text}')
+    raise NotImplementedError(
+        "Meta Movie Gen does not expose a public video generation REST API for "
+        "general developers. Remove this call or integrate a supported provider "
+        "(OpenAI Sora, Google Veo, Runway, Luma, BytePlus/Volcengine Ark / Seedance, etc.)."
+    )
+
 
 if __name__ == "__main__":
-    video = generate_video_meta("A dramatic scene of a spaceship entering a wormhole")
-    print(f"Video response: {video}")
-
+    try:
+        generate_video_meta("A dramatic scene of a spaceship entering a wormhole")
+    except NotImplementedError as e:
+        print(e)
