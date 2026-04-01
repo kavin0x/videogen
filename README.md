@@ -1,6 +1,7 @@
 # Video Generation APIs
 
 Thin Python wrappers around current **video generation** HTTP APIs and official SDKs. Model names and paths follow vendor docs as of early 2026 (verify in each provider’s console if a call fails).
+> Note, the code examples show below are usibg the code files as imports, this is not offcial syntax, this is if you use my code
 
 ## Files
 
