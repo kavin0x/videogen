@@ -28,7 +28,7 @@ pip install openai python-dotenv requests google-genai
 Install from PyPI:
 
 ```bash
-pip install videogen
+pip install openvideogen
 ```
 
 Copy `.env.example` to `.env` and fill in keys.
