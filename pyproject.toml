@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "videogen"
+version = "0.1.0"
+description = "Thin Python wrappers for major video generation APIs"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [
+  { name = "kavin0x" }
+]
+keywords = ["video", "ai", "openai", "runway", "veo", "luma", "bytedance", "videogen", "ml", "easy ai"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Software Development :: Libraries :: Python Modules"
+]
+dependencies = [
+  "python-dotenv>=1.0.0",
+  "requests>=2.31.0",
+  "openai>=1.40.0",
+  "google-genai>=1.30.0"
+]
+
+[tool.setuptools]
+py-modules = [
+  "openai_video",
+  "runway_video",
+  "google_veo_video",
+  "luma_video",
+  "bytedance_video",
+  "meta_video"
+]

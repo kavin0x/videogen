@@ -1,7 +1,7 @@
 # Video Generation APIs
 
 Thin Python wrappers around current **video generation** HTTP APIs and official SDKs. Model names and paths follow vendor docs as of early 2026 (verify in each provider’s console if a call fails).
-> Note, the code examples show below are usibg the code files as imports, this is not offcial syntax, this is if you use my code
+> Note: the examples below import this repository's wrapper modules directly.
 
 ## Files
 
@@ -23,6 +23,12 @@ cd /path/to/videogen
 python3 -m venv .venv
 source .venv/bin/activate
 pip install openai python-dotenv requests google-genai
+```
+
+Install from PyPI:
+
+```bash
+pip install videogen
 ```
 
 Copy `.env.example` to `.env` and fill in keys.
@@ -100,3 +106,24 @@ task = create_bytedance_video_task("A cartoon character dancing in a park")
 ### Meta
 
 `generate_video_meta` is intentionally not implemented — there is no public Movie Gen REST API for arbitrary keys.
+
+## PyPI Release Flow
+
+This repository is configured to publish to PyPI from GitHub Releases via
+trusted publishing.
+
+1. Update version in [pyproject.toml](pyproject.toml) (for example `0.1.1`).
+2. Create a GitHub Release with a tag that matches the version exactly.
+    Tags like `v0.1.1` are also accepted.
+3. The workflow in [.github/workflows/pypi-publish.yml](.github/workflows/pypi-publish.yml)
+    builds and validates distributions, then publishes to PyPI.
+
+### One-Time Setup
+
+1. In PyPI, create project `videogen` (or publish once manually to create it).
+2. In PyPI project settings, add a trusted publisher for this GitHub repo:
+    `owner/repo`: this repository
+    workflow: `pypi-publish.yml`
+    environment: `pypi`
+3. In GitHub repo settings, create environment `pypi` (optional protections
+    recommended).
